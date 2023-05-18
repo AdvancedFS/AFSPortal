@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AFSPortal.Models.Project>
+
+@{
+    ViewData["PageTitle"] = "Projects";
+    ViewData["PageActionText"] = "+ New Project";
+    ViewData["PageActionUrl"] = "/Project/AddOrEdit";
+}
+
+
+<div class="row">
+    <div class="col-md-13">
+        <ejs-grid id="categories" dataSource="@Model" gridLines="None"
+                  allowSorting="true" allowPaging="true">
+            <e-grid-pagesettings pageSize="5"></e-grid-pagesettings>
+            <e-grid-columns>
+                <e-grid-column headerText="ProjectName" field="ProjectName" width="200px"></e-grid-column>
+                <e-grid-column headerText="ProjectKey" field="ProjectKey"></e-grid-column>
+                <e-grid-column headerText="Status" template="#typeColumnTemplate" width="150px"></e-grid-column>
+                <e-grid-column headerText="Action" template="#actionColumnTemplate" width="100px"></e-grid-column>
+            </e-grid-columns>
+        </ejs-grid>
+    </div>
+</div>
+
+<script id="typeColumnTemplate" type="text/x-template">
+    ${if(Status)}
+    <span class="badge bg-success">Active</span>
+    ${else}
+    <span class="badge bg-danger">Expired</span>
+    ${/if}
+</script>
+
+<script id="actionColumnTemplate" type="text/x-template">
+    <div class="d-flex flex-row justify-content-start">
+        <a class="btn btn-sm no-a-decoration" href="/Project/AddOrEdit/${ProjectID}">
+            <i class="fa-solid fa-pen fa-lg"></i>
+        </a>
+        <form action="/Project/Delete/${ProjectID}" method="post">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-sm btn-link no-a-decoration"
+                    onclick="return confirm(&quot;Are sure to delete this Project?&quot;)">
+                <i class="fa-solid fa-trash-can fa-lg text-danger"></i>
+            </button>
+        </form>
+    </div>
+</script>

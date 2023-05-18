@@ -1,0 +1,39 @@
+﻿@model AFSPortal.Models.Project
+
+@{
+    ViewData["PageTitle"] = Model.ProjectID == 0 ? "Create a new project" : "Edit project";
+}
+
+
+<div class="row">
+    <div class="col-md-13">
+        <div class="widget p-5" style="background-color:#212b36">
+            <form asp-action="AddOrEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" name="ProjectID" value="@Model.ProjectID" />
+
+                <div class="mb-3">
+                    <ejs-textbox id="title" placeholder="ProjectName" ejs-for="ProjectName" floatLabelType="Always"></ejs-textbox>
+                    <span asp-validation-for="ProjectName" class="text-danger fs-6"></span>
+                </div>
+                @if (@Model.ProjectID > 0)
+                {
+                    <div class="mb-3">
+                        <ejs-textbox id="icon" placeholder="ProjectKey" ejs-for="ProjectKey" readonly="true" floatLabelType="Always"></ejs-textbox>
+                    </div>
+                }
+                <div class="mb-3">
+                    <ejs-datepicker id="datepicker" placeholder="Valid Till" ejs-for="ValidTill" floatLabelType="Always"></ejs-datepicker>
+                </div>
+
+                <div class="mb-3">
+
+                    <ejs-switch id="switch1" name="Status" checked="@Model.Status" ejs-for="Status" floatLabelType="Always"></ejs-switch>
+                </div>
+
+                <ejs-button id="submit" type="submit" content="Submit" cssClass="e-success"></ejs-button>
+            </form>
+        </div>
+    </div>
+</div>
+
