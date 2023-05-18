@@ -1,0 +1,120 @@
+﻿@model IEnumerable<AFSPortal.Models.Reports>
+
+@{
+}
+@{
+    ViewBag.DisableMainContent = true;
+}
+<head>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.css"
+          rel="stylesheet" />
+    <style>
+        .e-grid .e-gridheader .e-headercell {
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .e-grid .e-rowcell {
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        th, td, p {
+            color: #fff;
+        }
+
+            /* Override styles for the span and th elements */
+            td span {
+                color: initial;
+            }
+    </style>
+
+</head>
+
+<!-- MDB -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.js"></script>
+
+<div class="row" style="background-color: #12161d;">
+    <div class="col-md-13">
+        @*<ejs-grid id="categories" dataSource="@Model" gridLines="None"
+                      allowSorting="true" allowPaging="true">
+                <e-grid-columns>
+                    <e-grid-column headerText="CreatedBy" field="CreatedBy"></e-grid-column>
+                    <e-grid-column headerText="ProjectName" field="ProjectName"></e-grid-column>
+                    <e-grid-column headerText="Description" field="Description"></e-grid-column>
+                    <e-grid-column headerText="Summary" field="Summary"></e-grid-column>
+                    <e-grid-column headerText="Status" field="Status"></e-grid-column>
+                </e-grid-columns>
+            </ejs-grid>*@
+
+        <table class="table align-middle mb-0 bg-white">
+            <thead class="bg-light">
+                <tr style="background-color: #1a222b;">
+                    <th style="font-weight: bold;">CreatedBy</th>
+                    <th style="font-weight: bold;">ProjectName</th>
+                    <th style="font-weight: bold;">Description</th>
+                    <th style="font-weight: bold;">Summary</th>
+                    <th style="font-weight: bold;">Status</th>
+                </tr>
+            </thead>
+
+            <tbody style="background-color: #222b33;">
+                
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="@Url.Content("~/UserIcon.png")" alt="Icon" style="width: 30px; height: 30px;" />
+
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">John Doe</p>
+                                    <p class="text-muted mb-0">@item.CreatedBy</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">@item.ProjectName</p>
+                        </td>
+
+                        <td>@item.Description</td>
+                        <td>@item.Summary</td>
+                        <td>
+                            @if (item.Status == 0)
+                            {
+                                <span class="badge badge-primary rounded-pill d-inline">Onboarding</span>
+                            }
+                            else if (item.Status == 1)
+                            {
+                                <span class="badge badge-success rounded-pill d-inline">Active</span>
+                            }
+                            else if (item.Status == 2)
+                            {
+                                <span class="badge badge-secondary rounded-pill d-inline">Inactive</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-warning rounded-pill d-inline">Unknown</span>
+                            }
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- MDB -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.js"></script>

@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.css" rel="stylesheet">
+
+
+    <style>
+        body {
+            background-image: url('https://auth.identity.oneadvanced.com/login/assets/img/bg.png');
+            /*            background-size: cover;
+            background-repeat: no-repeat;
+            background-color:blue;*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card" style="width: 30rem; height: 70rem; background-color: #12161d;">
+        <div class="card-body" style="background-color: #12161d;">
+            <form asp-controller="Project" asp-action="Index" method="post">
+                <div class="mb-3 mt-3">
+                    <img src="https://cdn.svc.oneadvanced.com/mosaic/2.0.0/img/logo.svg" alt="Advanced Logo" style="width: 50px; height: 50px;">
+                    <label style="color: #fff;" > Advanced</label>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="email"></label>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="email"></label>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="email"></label>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="email"></label>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="email"></label>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="email" style="font-weight: bold; color: #fff;">Enter Email and Password</label>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="email" style="color: #fff;">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required style="background-color: #fff; color: #12161d;">
+                </div>
+                <div class="mb-3">
+                    <label for="pwd" style="color: #fff;">Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required style="background-color: #fff; color: #12161d;">
+                </div>
+                <div class="form-check mb-3">
+                    <label class="form-check-label" style="color: #fff;">
+                        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                    </label>
+                </div>
+
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MDB -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.js"></script>
+</body>
+
+</html>
+
