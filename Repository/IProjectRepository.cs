@@ -7,8 +7,8 @@ namespace AFSPortal.Repository
 	{
         IEnumerable<Project> GetAllProjects();
         Project GetProjectById(int id);
-        Project AddProject(Project customer);
-        Project UpdateProject(Project customer);
+        Project AddProject(Project project);
+        Project UpdateProject(Project project);
         void DeleteProject(int? id);
     }
 }

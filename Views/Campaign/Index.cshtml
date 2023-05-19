@@ -1,43 +1,47 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<AFSPortal.Models.Campaign>
+
 @{
+    ViewData["PageTitle"] = "Feedback Campaign";
+    ViewData["PageActionText"] = "+ Create Campaign";
+    ViewData["PageActionUrl"] = "/Campaign/AddOrEdit";
 }
 
-<div class="card" style="width: 25rem; height: 40rem;">
-    <div class="card-body">
-        <form asp-controller="Project" asp-action="Index" method="post">
-            <div class="mb-3 mt-3">
-                <label for="email"></label>
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="email"></label>
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="email"></label>
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="email"></label>
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="email" style="font-weight: bold; ">Enter Email and Password</label>
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
-            </div>
-            <div class="mb-3">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
-            </div>
-            <div class="form-check mb-3">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                </label>
-            </div>
 
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-        </form>
+<div class="row">
+    <div class="col-md-13">
+        <ejs-grid id="categories" load="load" dataSource="@Model" gridLines="None"
+                  allowSorting="true" allowPaging="true">
+            <e-grid-pagesettings pageSize="5"></e-grid-pagesettings>
+            <e-grid-columns>
+                <e-grid-column headerText="ProjectName" field="ProjectName" width="150px"></e-grid-column>
+                <e-grid-column headerText="Title" field="Title" width="300px"></e-grid-column>
+                <e-grid-column headerText="Starts From" field="StartFrom" ></e-grid-column>
+                <e-grid-column headerText="Ends On" field="EndOn"></e-grid-column>
+                <e-grid-column headerText="Status" template="#typeColumnTemplate" width="100px"></e-grid-column>
+                <e-grid-column headerText="Action" template="#actionColumnTemplate" width="100px"></e-grid-column>
+            </e-grid-columns>
+        </ejs-grid>
     </div>
 </div>
+
+<script id="typeColumnTemplate" type="text/x-template">
+    ${if(Status)}
+    <span class="badge bg-success">Active</span>
+    ${else}
+    <span class="badge bg-danger">Inactive</span>
+    ${/if}
+</script>
+
+<script>
+    function load(args) {
+        this.columns[2].format = { type: 'date', format: 'dd/MM/yyyy' };
+        this.columns[3].format = { type: 'date', format: 'dd/MM/yyyy' };
+    }</script>
+
+<script id="actionColumnTemplate" type="text/x-template">
+    <div class="d-flex flex-row justify-content-start">
+        <a class="btn btn-sm no-a-decoration" href="/Campaign/AddOrEdit/${CampaignID}">
+            <i class="fa-solid fa-pen fa-lg"></i>
+        </a>
+    </div>
+</script>
