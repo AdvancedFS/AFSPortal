@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{44D0D171-04E7-4D28-B698-25058D0E1A99}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.AFSPortal PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/DashboardController.cs">
+    <Files>
+      <File FileName="Views/Dashboard/Index.cshtml" Line="47" Column="15" />
+      <File FileName="Controllers/DashboardController.cs" Line="52" Column="10" />
+      <File FileName="Repository/IssueRepository.cs" Line="21" Column="53" />
+      <File FileName="Repository/IIssueRepository.cs" Line="15" Column="1" />
+      <File FileName="Repository/ProjectRepository.cs" Line="79" Column="79" />
+      <File FileName="Program.cs" Line="11" Column="1" />
+      <File FileName="Controllers/ReportedIssuesController.cs" Line="24" Column="25" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="AFSPortal" expanded="True">
+            <Node name="AFSPortal" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="DashboardController.cs" selected="True" />
+              </Node>
+              <Node name="Repository" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Dashboard" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>
