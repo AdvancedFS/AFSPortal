@@ -9,6 +9,7 @@ builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 builder.Services.AddScoped<IIssueRepository, IssueRepository>();
 
 
+
 //Register Syncfusion license
 Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBPh8sVXJ1S0R+X1pCaV5HQmFJfFBmRmlcflRwcUUmHVdTRHRcQlhiT39Wc0RgUHdWeH0=");
 
@@ -31,7 +32,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Login}/{action=Index}/{id?}");
+    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
 
 
 app.Run();

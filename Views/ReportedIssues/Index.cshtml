@@ -78,7 +78,7 @@
                                 <img src="@Url.Content("~/UserIcon.png")" alt="Icon" style="width: 30px; height: 30px;" />
 
                                 <div class="ms-3">
-                                    <p class="fw-bold mb-1">John Doe</p>
+                                    <p class="fw-bold mb-1">@item.UserName</p>
                                     <p class="text-muted mb-0">@item.CreatedBy</p>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                         <td>
                             @if (item.Status == 0)
                             {
-                                <span class="badge badge-primary rounded-pill d-inline">Onboarding</span>
+                                <span class="badge badge-primary rounded-pill d-inline">In Review</span>
                             }
                             else if (item.Status == 1)
                             {
